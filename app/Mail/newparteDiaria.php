@@ -11,7 +11,8 @@ class newparteDiaria extends Mailable
 {
     use Queueable, SerializesModels;
     private $user;
-    private $equipamento;
+    private $equipamento = [];
+    private $result = [];
     /**
      * Create a new message instance.
      *
@@ -19,11 +20,10 @@ class newparteDiaria extends Mailable
      */
     public function __construct(\stdClass $user)
     {
-       $this->user=$user;
-       //$this->equipamento=$equipamento;
-        //
+        $this->user = $user;
+        //$this->equipamento = $equipamento;
+        //return $this->equipamento;
     }
-
     /**
      * Build the message.
      *
@@ -32,11 +32,10 @@ class newparteDiaria extends Mailable
     public function build()
     {
         $this->subject('Relatório de parte diária');
-        $this->to($this->user->email, $this->user->name);
+        $this->to($this->user->email);
         //$this->attach(public_path('mn01-relatorio.pdf'));
-        return $this->view('Mail.email',[
-            'user'=>$this->user
-
+        return $this->view('Mail.email', [
+            'user' => $this->user
         ]);
     }
 }

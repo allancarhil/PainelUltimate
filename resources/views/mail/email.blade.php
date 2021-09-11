@@ -1,8 +1,3 @@
 <h1>Relatório de equipamento</h1>
 
-@foreach($dados as $d){
-
-    <div>
-        
-    </div>
-}
+<h2>Teste Email</h2>

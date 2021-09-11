@@ -7,7 +7,7 @@ use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class ArrayExport implements FromArray, WithMultipleSheets, WithHeadings
+class ArrayExport implements FromArray, WithMultipleSheets
 {
     use Exportable;
 
@@ -16,7 +16,6 @@ class ArrayExport implements FromArray, WithMultipleSheets, WithHeadings
      */
 
     public $dados;
-    public $teste = [];
     public function __construct($dados)
     {
 
@@ -51,10 +50,5 @@ class ArrayExport implements FromArray, WithMultipleSheets, WithHeadings
             $sheets[] = new ArrayExport($this->dados[$i]);
         }
         return $sheets;
-    }
-
-    public function headings(): array
-    {
-       return $this->teste;
     }
 }

@@ -1,9 +1,8 @@
 <?php
 
-use App\Mail\newparteDiaria;
-use Illuminate\Support\Facades\Mail;
+
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\FuncCall;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -236,16 +235,8 @@ Route::get('/usinaResumo', [App\Http\Controllers\usinaResumoController::class, '
 Route::get('/rebritagemResumo', [App\Http\Controllers\rebritagemResumoController::class, 'index'])->middleware('auth');
 
 //Route Excel
-
 Route::post('/data', [App\Http\Controllers\DataController::class, 'exportExcel'])->middleware('auth');
 
 //Route email
-Route::get('/envio-email',function(){
-    
-    $user=new stdClass();
-    $user->name='Carlos Eduardo';
-    $user->email='kadu@petraagregados.com';
-    //return new newparteDiaria($user);
-    Mail::send(new newparteDiaria($user));
-    }
-);
+Route::get('/envio-email',[App\Http\Controllers\EmailController::class, 'index'])->middleware('auth');
+Route::post('/envio-email',[App\Http\Controllers\EmailController::class, 'sendEmail'])->middleware('auth');
