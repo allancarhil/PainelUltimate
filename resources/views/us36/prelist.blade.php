@@ -32,7 +32,7 @@
                     <form action="{{url('/us36')}}" method="POST">
                         @csrf
                             <td>
-                                <input name="data" label="Dia-Mes-Ano" class="form-control" value="<?= $d->data ?>">
+                                <input name="data" readonly label="Dia-Mes-Ano" class="form-control" value="<?= $d->data ?>">
                             </td>
                             <td>
                                 <button type="submit" class="btn btn-primary" style="float: right;">Abrir</button>

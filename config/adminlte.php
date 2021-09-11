@@ -224,7 +224,12 @@ return [
     */
 
     'menu' => [
-       
+        ['header' => 'Relatórios'],
+        [
+            'text' => 'Envio de Email',
+            'url'  => 'envio-email',
+            'icon' => false,
+        ],
         ['header' => 'Equipamentos'],
         [
             'text' => 'MN-01',
