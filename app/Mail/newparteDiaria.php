@@ -18,11 +18,11 @@ class newparteDiaria extends Mailable
      *
      * @return void
      */
-    public function __construct(\stdClass $user)
+    public function __construct(\stdClass $user, $equipamento)
     {
         $this->user = $user;
-        //$this->equipamento = $equipamento;
-        //return $this->equipamento;
+        $this->equipamento = $equipamento;
+        return $this->equipamento;
     }
     /**
      * Build the message.

@@ -30,6 +30,6 @@ class EmailController extends Controller
         $user = new \stdClass();
         $user->email = $email;
 
-        Mail::send(new newparteDiaria($user));
+        Mail::send(new newparteDiaria($user, $result));
     }
 }
